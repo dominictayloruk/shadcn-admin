@@ -56,14 +56,26 @@ function Calendar({
         day_hidden: 'invisible',
         ...classNames,
       }}
-      components={{
-        IconLeft: ({ className, ...props }: { className?: string; props?: React.SVGProps<SVGSVGElement> }) => (
-          <ChevronLeft className={cn('h-4 w-4', className)} {...props} />
-        ),
-        IconRight: ({ className, ...props }: { className?: string; props?: React.SVGProps<SVGSVGElement> }) => (
-          <ChevronRight className={cn('h-4 w-4', className)} {...props} />
-        ),
-      } as unknown as Partial<DayPickerProps["components"]>}
+      components={
+        {
+          IconLeft: ({
+            className,
+            ...props
+          }: {
+            className?: string
+            props?: React.SVGProps<SVGSVGElement>
+          }) => <ChevronLeft className={cn('h-4 w-4', className)} {...props} />,
+          IconRight: ({
+            className,
+            ...props
+          }: {
+            className?: string
+            props?: React.SVGProps<SVGSVGElement>
+          }) => (
+            <ChevronRight className={cn('h-4 w-4', className)} {...props} />
+          ),
+        } as unknown as Partial<DayPickerProps['components']>
+      }
       {...props}
     />
   )
