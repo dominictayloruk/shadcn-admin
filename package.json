@@ -13,7 +13,7 @@
     "knip": "knip"
   },
   "dependencies": {
-    "@hookform/resolvers": "^5.0.0",
+    "@hookform/resolvers": "^5.0.1",
     "@radix-ui/react-alert-dialog": "^1.1.2",
     "@radix-ui/react-avatar": "^1.1.1",
     "@radix-ui/react-checkbox": "^1.1.2",
