@@ -55,7 +55,7 @@
     "zustand": "^5.0.3"
   },
   "devDependencies": {
-    "@eslint/js": "^9.25.0",
+    "@eslint/js": "^9.25.1",
     "@faker-js/faker": "^9.7.0",
     "@tanstack/eslint-plugin-query": "^5.73.3",
     "@tanstack/react-query-devtools": "^5.74.4",
