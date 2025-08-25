@@ -148,7 +148,7 @@ export function UsersActionDialog({ currentRow, open, onOpenChange }: Props) {
             Click save when you&apos;re done.
           </DialogDescription>
         </DialogHeader>
-        <div className='-mr-4 h-[26.25rem] w-full overflow-y-auto py-1 pr-4'>
+        <div className='-mr-4 h-105 w-full overflow-y-auto py-1 pr-4'>
           <Form {...form}>
             <form
               id='user-form'
