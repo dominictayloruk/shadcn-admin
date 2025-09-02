@@ -60,7 +60,7 @@
     "@tailwindcss/postcss": "^4.1.12",
     "@tanstack/eslint-plugin-query": "^5.83.1",
     "@tanstack/react-query-devtools": "^5.85.6",
-    "@tanstack/router-devtools": "^1.131.28",
+    "@tanstack/router-devtools": "^1.131.31",
     "@tanstack/router-plugin": "^1.131.28",
     "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "@types/js-cookie": "^3.0.6",
