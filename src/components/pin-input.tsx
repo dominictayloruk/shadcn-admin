@@ -99,8 +99,8 @@ const PinInput = ({ className, children, ref, ...props }: PinInputProps) => {
 
   const length = getInputFieldCount(children)
 
-  // pins, pinValue, refMap, ...handlers
-  const { pins, pinValue, refMap, ...handlers } = usePinInput({
+  // pins, pinValue, getRefMap, ...handlers
+  const { pins, pinValue, getRefMap, ...handlers } = usePinInput({
     value,
     defaultValue,
     placeholder,
@@ -131,52 +131,60 @@ const PinInput = ({ className, children, ref, ...props }: PinInputProps) => {
   /* focus on first input field if autoFocus is set */
   React.useEffect(() => {
     if (!autoFocus) return
-    const node = refMap?.get(0)
+    const node = getRefMap()?.get(0)
     if (node) {
       node.focus()
     }
-  }, [autoFocus, refMap])
+  }, [autoFocus, getRefMap])
 
-  const skipRef = React.useRef(0)
-  let counter = 0
-  const clones = validChildren.map((child) => {
-    if (child.type === PinInputField) {
-      const pinIndex = counter
-      counter = counter + 1
-      return React.cloneElement(child, {
-        name,
-        inputKey: `input-${pinIndex}`,
-        value: length > pinIndex ? pins[pinIndex] : '',
-        onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
-          handlers.handleChange(e, pinIndex),
-        onFocus: (e: React.FocusEvent<HTMLInputElement>) =>
-          handlers.handleFocus(e, pinIndex),
-        onBlur: () => handlers.handleBlur(pinIndex),
-        onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) =>
-          handlers.handleKeyDown(e, pinIndex),
-        onPaste: (e: React.ClipboardEvent<HTMLInputElement>) =>
-          handlers.handlePaste(e),
-        placeholder: placeholder,
-        type: type,
-        mask: mask,
-        autoComplete: otp ? 'one-time-code' : 'off',
-        disabled: disabled,
-        readOnly: readOnly,
-        'aria-label': ariaLabel
-          ? ariaLabel
-          : `Pin input ${counter} of ${length}`,
-        ref: (node: HTMLInputElement | null) => {
-          if (node) {
-            refMap?.set(pinIndex, node)
-          } else {
-            refMap?.delete(pinIndex)
-          }
-        },
-      })
+  const clones = React.useMemo(() => {
+    const result: { counter: number; clones: React.ReactElement[] } = {
+      counter: 0,
+      clones: [],
     }
-    skipRef.current = skipRef.current + 1
-    return child
-  })
+    
+    validChildren.forEach((child) => {
+      if (child.type === PinInputField) {
+        const pinIndex = result.counter
+        result.counter = result.counter + 1
+        result.clones.push(React.cloneElement(child, {
+          name,
+          inputKey: `input-${pinIndex}`,
+          value: length > pinIndex ? pins[pinIndex] : '',
+          onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+            handlers.handleChange(e, pinIndex),
+          onFocus: (e: React.FocusEvent<HTMLInputElement>) =>
+            handlers.handleFocus(e, pinIndex),
+          onBlur: () => handlers.handleBlur(pinIndex),
+          onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) =>
+            handlers.handleKeyDown(e, pinIndex),
+          onPaste: (e: React.ClipboardEvent<HTMLInputElement>) =>
+            handlers.handlePaste(e),
+          placeholder: placeholder,
+          type: type,
+          mask: mask,
+          autoComplete: otp ? 'one-time-code' : 'off',
+          disabled: disabled,
+          readOnly: readOnly,
+          'aria-label': ariaLabel
+            ? ariaLabel
+            : `Pin input ${pinIndex + 1} of ${length}`,
+          ref: (node: HTMLInputElement | null) => {
+            const map = getRefMap()
+            if (node) {
+              map?.set(pinIndex, node)
+            } else {
+              map?.delete(pinIndex)
+            }
+          },
+        }))
+      } else {
+        result.clones.push(child)
+      }
+    })
+    
+    return result.clones
+  }, [validChildren, name, length, pins, handlers, placeholder, type, mask, otp, disabled, readOnly, ariaLabel, getRefMap])
 
   return (
     <PinInputContext.Provider value={true}>
@@ -424,7 +432,7 @@ const usePinInput = ({
   return {
     pins,
     pinValue,
-    refMap: getMap(),
+    getRefMap: getMap,
     handleFocus,
     handleBlur,
     handleChange,

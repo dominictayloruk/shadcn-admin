@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { IconCheck, IconX } from '@tabler/icons-react'
 import { toast } from '@/hooks/use-toast'
 import { Badge } from '@/components/ui/badge'
@@ -41,11 +41,12 @@ export function NewChat({ users, onOpenChange, open }: Props) {
     setSelectedUsers(selectedUsers.filter((user) => user.id !== userId))
   }
 
-  useEffect(() => {
-    if (!open) {
+  const handleOpenChange = (newOpen: boolean) => {
+    if (!newOpen) {
       setSelectedUsers([])
     }
-  }, [open])
+    onOpenChange(newOpen)
+  }
 
   const onSubmit = () => {
     toast({
@@ -61,7 +62,7 @@ export function NewChat({ users, onOpenChange, open }: Props) {
   }
 
   return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
+    <Dialog open={open} onOpenChange={handleOpenChange}>
       <DialogContent className='sm:max-w-[600px]'>
         <DialogHeader>
           <DialogTitle>New message</DialogTitle>

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useState } from 'react'
 import { cn } from '@/lib/utils'
 import {
   Popover,
@@ -23,16 +23,14 @@ export default function LongText({
   className = '',
   contentClassName = '',
 }: Props) {
-  const ref = useRef<HTMLDivElement>(null)
   const [isOverflown, setIsOverflown] = useState(false)
 
-  useEffect(() => {
-    if (checkOverflow(ref.current)) {
+  const ref = useCallback((node: HTMLDivElement | null) => {
+    if (node && checkOverflow(node)) {
       setIsOverflown(true)
-      return
+    } else {
+      setIsOverflown(false)
     }
-
-    setIsOverflown(false)
   }, [])
 
   if (!isOverflown)
