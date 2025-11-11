@@ -142,49 +142,65 @@ const PinInput = ({ className, children, ref, ...props }: PinInputProps) => {
       counter: 0,
       clones: [],
     }
-    
+
     validChildren.forEach((child) => {
       if (child.type === PinInputField) {
         const pinIndex = result.counter
         result.counter = result.counter + 1
-        result.clones.push(React.cloneElement(child, {
-          name,
-          inputKey: `input-${pinIndex}`,
-          value: length > pinIndex ? pins[pinIndex] : '',
-          onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
-            handlers.handleChange(e, pinIndex),
-          onFocus: (e: React.FocusEvent<HTMLInputElement>) =>
-            handlers.handleFocus(e, pinIndex),
-          onBlur: () => handlers.handleBlur(pinIndex),
-          onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) =>
-            handlers.handleKeyDown(e, pinIndex),
-          onPaste: (e: React.ClipboardEvent<HTMLInputElement>) =>
-            handlers.handlePaste(e),
-          placeholder: placeholder,
-          type: type,
-          mask: mask,
-          autoComplete: otp ? 'one-time-code' : 'off',
-          disabled: disabled,
-          readOnly: readOnly,
-          'aria-label': ariaLabel
-            ? ariaLabel
-            : `Pin input ${pinIndex + 1} of ${length}`,
-          ref: (node: HTMLInputElement | null) => {
-            const map = getRefMap()
-            if (node) {
-              map?.set(pinIndex, node)
-            } else {
-              map?.delete(pinIndex)
-            }
-          },
-        }))
+        result.clones.push(
+          React.cloneElement(child, {
+            name,
+            inputKey: `input-${pinIndex}`,
+            value: length > pinIndex ? pins[pinIndex] : '',
+            onChange: (e: React.ChangeEvent<HTMLInputElement>) =>
+              handlers.handleChange(e, pinIndex),
+            onFocus: (e: React.FocusEvent<HTMLInputElement>) =>
+              handlers.handleFocus(e, pinIndex),
+            onBlur: () => handlers.handleBlur(pinIndex),
+            onKeyDown: (e: React.KeyboardEvent<HTMLInputElement>) =>
+              handlers.handleKeyDown(e, pinIndex),
+            onPaste: (e: React.ClipboardEvent<HTMLInputElement>) =>
+              handlers.handlePaste(e),
+            placeholder: placeholder,
+            type: type,
+            mask: mask,
+            autoComplete: otp ? 'one-time-code' : 'off',
+            disabled: disabled,
+            readOnly: readOnly,
+            'aria-label': ariaLabel
+              ? ariaLabel
+              : `Pin input ${pinIndex + 1} of ${length}`,
+            ref: (node: HTMLInputElement | null) => {
+              const map = getRefMap()
+              if (node) {
+                map?.set(pinIndex, node)
+              } else {
+                map?.delete(pinIndex)
+              }
+            },
+          })
+        )
       } else {
         result.clones.push(child)
       }
     })
-    
+
     return result.clones
-  }, [validChildren, name, length, pins, handlers, placeholder, type, mask, otp, disabled, readOnly, ariaLabel, getRefMap])
+  }, [
+    validChildren,
+    name,
+    length,
+    pins,
+    handlers,
+    placeholder,
+    type,
+    mask,
+    otp,
+    disabled,
+    readOnly,
+    ariaLabel,
+    getRefMap,
+  ])
 
   return (
     <PinInputContext.Provider value={true}>
