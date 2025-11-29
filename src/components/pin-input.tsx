@@ -221,11 +221,10 @@ interface _PinInputFieldProps {
   type: 'numeric' | 'alphanumeric'
 }
 
-interface PinInputFieldProps<T>
-  extends Omit<
-    React.ComponentPropsWithoutRef<'input'>,
-    keyof _PinInputFieldProps
-  > {
+interface PinInputFieldProps<T> extends Omit<
+  React.ComponentPropsWithoutRef<'input'>,
+  keyof _PinInputFieldProps
+> {
   component?: T
 }
 
