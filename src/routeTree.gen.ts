@@ -239,7 +239,7 @@ const AuthenticatedSettingsAccountLazyRoute =
 export interface FileRoutesByFullPath {
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
-  '/settings': typeof AuthenticatedSettingsRouteLazyRouteWithChildren
+  '/settings': typeof AuthenticatedSettingsRouteLazyRoute
   '/forgot-password': typeof authForgotPasswordLazyRoute
   '/sign-in-2': typeof authSignIn2LazyRoute
   '/sign-up': typeof authSignUpLazyRoute
@@ -263,6 +263,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/otp': typeof authOtpRoute
   '/sign-in': typeof authSignInRoute
+  '/settings': typeof AuthenticatedSettingsIndexLazyRoute
   '/forgot-password': typeof authForgotPasswordLazyRoute
   '/sign-in-2': typeof authSignIn2LazyRoute
   '/sign-up': typeof authSignUpLazyRoute
@@ -279,7 +280,6 @@ export interface FileRoutesByTo {
   '/apps': typeof AuthenticatedAppsIndexLazyRoute
   '/chats': typeof AuthenticatedChatsIndexLazyRoute
   '/help-center': typeof AuthenticatedHelpCenterIndexLazyRoute
-  '/settings': typeof AuthenticatedSettingsIndexLazyRoute
   '/tasks': typeof AuthenticatedTasksIndexLazyRoute
   '/users': typeof AuthenticatedUsersIndexLazyRoute
 }
@@ -288,7 +288,7 @@ export interface FileRoutesById {
   '/_authenticated': typeof AuthenticatedRouteRouteWithChildren
   '/(auth)/otp': typeof authOtpRoute
   '/(auth)/sign-in': typeof authSignInRoute
-  '/_authenticated/settings': typeof AuthenticatedSettingsRouteLazyRouteWithChildren
+  '/_authenticated/settings': typeof AuthenticatedSettingsRouteLazyRoute
   '/(auth)/forgot-password': typeof authForgotPasswordLazyRoute
   '/(auth)/sign-in-2': typeof authSignIn2LazyRoute
   '/(auth)/sign-up': typeof authSignUpLazyRoute
@@ -338,6 +338,7 @@ export interface FileRouteTypes {
   to:
     | '/otp'
     | '/sign-in'
+    | '/settings'
     | '/forgot-password'
     | '/sign-in-2'
     | '/sign-up'
@@ -354,7 +355,6 @@ export interface FileRouteTypes {
     | '/apps'
     | '/chats'
     | '/help-center'
-    | '/settings'
     | '/tasks'
     | '/users'
   id:
@@ -564,34 +564,8 @@ declare module '@tanstack/react-router' {
   }
 }
 
-interface AuthenticatedSettingsRouteLazyRouteChildren {
-  AuthenticatedSettingsAccountLazyRoute: typeof AuthenticatedSettingsAccountLazyRoute
-  AuthenticatedSettingsAppearanceLazyRoute: typeof AuthenticatedSettingsAppearanceLazyRoute
-  AuthenticatedSettingsDisplayLazyRoute: typeof AuthenticatedSettingsDisplayLazyRoute
-  AuthenticatedSettingsNotificationsLazyRoute: typeof AuthenticatedSettingsNotificationsLazyRoute
-  AuthenticatedSettingsIndexLazyRoute: typeof AuthenticatedSettingsIndexLazyRoute
-}
-
-const AuthenticatedSettingsRouteLazyRouteChildren: AuthenticatedSettingsRouteLazyRouteChildren =
-  {
-    AuthenticatedSettingsAccountLazyRoute:
-      AuthenticatedSettingsAccountLazyRoute,
-    AuthenticatedSettingsAppearanceLazyRoute:
-      AuthenticatedSettingsAppearanceLazyRoute,
-    AuthenticatedSettingsDisplayLazyRoute:
-      AuthenticatedSettingsDisplayLazyRoute,
-    AuthenticatedSettingsNotificationsLazyRoute:
-      AuthenticatedSettingsNotificationsLazyRoute,
-    AuthenticatedSettingsIndexLazyRoute: AuthenticatedSettingsIndexLazyRoute,
-  }
-
-const AuthenticatedSettingsRouteLazyRouteWithChildren =
-  AuthenticatedSettingsRouteLazyRoute._addFileChildren(
-    AuthenticatedSettingsRouteLazyRouteChildren,
-  )
-
 interface AuthenticatedRouteRouteChildren {
-  AuthenticatedSettingsRouteLazyRoute: typeof AuthenticatedSettingsRouteLazyRouteWithChildren
+  AuthenticatedSettingsRouteLazyRoute: typeof AuthenticatedSettingsRouteLazyRoute
   AuthenticatedIndexRoute: typeof AuthenticatedIndexRoute
   AuthenticatedAppsIndexLazyRoute: typeof AuthenticatedAppsIndexLazyRoute
   AuthenticatedChatsIndexLazyRoute: typeof AuthenticatedChatsIndexLazyRoute
@@ -601,8 +575,7 @@ interface AuthenticatedRouteRouteChildren {
 }
 
 const AuthenticatedRouteRouteChildren: AuthenticatedRouteRouteChildren = {
-  AuthenticatedSettingsRouteLazyRoute:
-    AuthenticatedSettingsRouteLazyRouteWithChildren,
+  AuthenticatedSettingsRouteLazyRoute: AuthenticatedSettingsRouteLazyRoute,
   AuthenticatedIndexRoute: AuthenticatedIndexRoute,
   AuthenticatedAppsIndexLazyRoute: AuthenticatedAppsIndexLazyRoute,
   AuthenticatedChatsIndexLazyRoute: AuthenticatedChatsIndexLazyRoute,
