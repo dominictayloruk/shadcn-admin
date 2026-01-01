@@ -35,7 +35,7 @@
     "@radix-ui/react-tooltip": "^1.2.8",
     "@radix-ui/react-visually-hidden": "^1.2.4",
     "@tabler/icons-react": "^3.36.0",
-    "@tanstack/react-query": "^5.90.14",
+    "@tanstack/react-query": "^5.90.16",
     "@tanstack/react-router": "^1.144.0",
     "@tanstack/react-table": "^8.21.3",
     "axios": "^1.13.2",
@@ -52,7 +52,7 @@
     "recharts": "^3.6.0",
     "tailwind-merge": "^3.4.0",
     "tailwindcss-animate": "^1.0.7",
-    "zod": "^4.2.1",
+    "zod": "^4.3.4",
     "zustand": "^5.0.9"
   },
   "devDependencies": {
@@ -62,7 +62,7 @@
     "@tanstack/eslint-plugin-query": "^5.91.2",
     "@tanstack/react-query-devtools": "^5.91.2",
     "@tanstack/router-devtools": "^1.144.0",
-    "@tanstack/router-plugin": "^1.144.0",
+    "@tanstack/router-plugin": "^1.145.2",
     "@trivago/prettier-plugin-sort-imports": "^6.0.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^24.10.1",
@@ -79,7 +79,7 @@
     "prettier-plugin-tailwindcss": "^0.7.2",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.50.1",
+    "typescript-eslint": "^8.51.0",
     "vite": "^7.3.0"
   }
 }
