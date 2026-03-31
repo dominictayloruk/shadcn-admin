@@ -60,7 +60,7 @@
     "@faker-js/faker": "^10.4.0",
     "@tailwindcss/postcss": "^4.2.1",
     "@tanstack/eslint-plugin-query": "^5.91.4",
-    "@tanstack/react-query-devtools": "^5.91.3",
+    "@tanstack/react-query-devtools": "^5.96.0",
     "@tanstack/router-devtools": "^1.166.11",
     "@tanstack/router-plugin": "^1.162.8",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
