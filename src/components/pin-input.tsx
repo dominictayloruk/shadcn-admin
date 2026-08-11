@@ -292,15 +292,15 @@ const usePinInput = ({
   )
 
   const [pins, setPins] = React.useState(pinInputs)
+  const [prevPinInputs, setPrevPinInputs] = React.useState(pinInputs)
   const pinValue = pins.join('').trim()
 
-  /**
-   * Update pins when values change programmatically.
-   * This syncs the pins if the `defaultValue` or `value` prop is updated.
-   */
-  React.useEffect(() => {
+  // Sync pins when values change programmatically (defaultValue/value prop updates).
+  // Adjusting state during render avoids the cascading renders of setState-in-effect.
+  if (pinInputs !== prevPinInputs) {
+    setPrevPinInputs(pinInputs)
     setPins(pinInputs)
-  }, [pinInputs])
+  }
 
   const itemsRef = React.useRef<Map<number, HTMLInputElement> | null>(null)
 

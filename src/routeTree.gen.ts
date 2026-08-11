@@ -12,112 +12,58 @@ import { createFileRoute } from '@tanstack/react-router'
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as AuthenticatedRouteRouteImport } from './routes/_authenticated/route'
-import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
-import { Route as authSignInRouteImport } from './routes/(auth)/sign-in'
 import { Route as authOtpRouteImport } from './routes/(auth)/otp'
+import { Route as authSignInRouteImport } from './routes/(auth)/sign-in'
+import { Route as AuthenticatedIndexRouteImport } from './routes/_authenticated/index'
 
-const errors503LazyRouteImport = createFileRoute('/(errors)/503')()
-const errors500LazyRouteImport = createFileRoute('/(errors)/500')()
-const errors404LazyRouteImport = createFileRoute('/(errors)/404')()
-const errors403LazyRouteImport = createFileRoute('/(errors)/403')()
-const errors401LazyRouteImport = createFileRoute('/(errors)/401')()
-const authSignUpLazyRouteImport = createFileRoute('/(auth)/sign-up')()
-const authSignIn2LazyRouteImport = createFileRoute('/(auth)/sign-in-2')()
 const authForgotPasswordLazyRouteImport = createFileRoute(
   '/(auth)/forgot-password',
 )()
+const authSignIn2LazyRouteImport = createFileRoute('/(auth)/sign-in-2')()
+const authSignUpLazyRouteImport = createFileRoute('/(auth)/sign-up')()
+const errors401LazyRouteImport = createFileRoute('/(errors)/401')()
+const errors403LazyRouteImport = createFileRoute('/(errors)/403')()
+const errors404LazyRouteImport = createFileRoute('/(errors)/404')()
+const errors500LazyRouteImport = createFileRoute('/(errors)/500')()
+const errors503LazyRouteImport = createFileRoute('/(errors)/503')()
 const AuthenticatedSettingsRouteLazyRouteImport = createFileRoute(
   '/_authenticated/settings',
-)()
-const AuthenticatedUsersIndexLazyRouteImport = createFileRoute(
-  '/_authenticated/users/',
-)()
-const AuthenticatedTasksIndexLazyRouteImport = createFileRoute(
-  '/_authenticated/tasks/',
-)()
-const AuthenticatedSettingsIndexLazyRouteImport = createFileRoute(
-  '/_authenticated/settings/',
-)()
-const AuthenticatedHelpCenterIndexLazyRouteImport = createFileRoute(
-  '/_authenticated/help-center/',
-)()
-const AuthenticatedChatsIndexLazyRouteImport = createFileRoute(
-  '/_authenticated/chats/',
 )()
 const AuthenticatedAppsIndexLazyRouteImport = createFileRoute(
   '/_authenticated/apps/',
 )()
-const AuthenticatedSettingsNotificationsLazyRouteImport = createFileRoute(
-  '/_authenticated/settings/notifications',
+const AuthenticatedChatsIndexLazyRouteImport = createFileRoute(
+  '/_authenticated/chats/',
 )()
-const AuthenticatedSettingsDisplayLazyRouteImport = createFileRoute(
-  '/_authenticated/settings/display',
+const AuthenticatedHelpCenterIndexLazyRouteImport = createFileRoute(
+  '/_authenticated/help-center/',
+)()
+const AuthenticatedSettingsIndexLazyRouteImport = createFileRoute(
+  '/_authenticated/settings/',
+)()
+const AuthenticatedSettingsAccountLazyRouteImport = createFileRoute(
+  '/_authenticated/settings/account',
 )()
 const AuthenticatedSettingsAppearanceLazyRouteImport = createFileRoute(
   '/_authenticated/settings/appearance',
 )()
-const AuthenticatedSettingsAccountLazyRouteImport = createFileRoute(
-  '/_authenticated/settings/account',
+const AuthenticatedSettingsDisplayLazyRouteImport = createFileRoute(
+  '/_authenticated/settings/display',
+)()
+const AuthenticatedSettingsNotificationsLazyRouteImport = createFileRoute(
+  '/_authenticated/settings/notifications',
+)()
+const AuthenticatedTasksIndexLazyRouteImport = createFileRoute(
+  '/_authenticated/tasks/',
+)()
+const AuthenticatedUsersIndexLazyRouteImport = createFileRoute(
+  '/_authenticated/users/',
 )()
 
 const AuthenticatedRouteRoute = AuthenticatedRouteRouteImport.update({
   id: '/_authenticated',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => AuthenticatedRouteRoute,
-} as any)
-const errors503LazyRoute = errors503LazyRouteImport
-  .update({
-    id: '/(errors)/503',
-    path: '/503',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-  .lazy(() => import('./routes/(errors)/503.lazy').then((d) => d.Route))
-const errors500LazyRoute = errors500LazyRouteImport
-  .update({
-    id: '/(errors)/500',
-    path: '/500',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-  .lazy(() => import('./routes/(errors)/500.lazy').then((d) => d.Route))
-const errors404LazyRoute = errors404LazyRouteImport
-  .update({
-    id: '/(errors)/404',
-    path: '/404',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-  .lazy(() => import('./routes/(errors)/404.lazy').then((d) => d.Route))
-const errors403LazyRoute = errors403LazyRouteImport
-  .update({
-    id: '/(errors)/403',
-    path: '/403',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-  .lazy(() => import('./routes/(errors)/403.lazy').then((d) => d.Route))
-const errors401LazyRoute = errors401LazyRouteImport
-  .update({
-    id: '/(errors)/401',
-    path: '/401',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-  .lazy(() => import('./routes/(errors)/401.lazy').then((d) => d.Route))
-const authSignUpLazyRoute = authSignUpLazyRouteImport
-  .update({
-    id: '/(auth)/sign-up',
-    path: '/sign-up',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-  .lazy(() => import('./routes/(auth)/sign-up.lazy').then((d) => d.Route))
-const authSignIn2LazyRoute = authSignIn2LazyRouteImport
-  .update({
-    id: '/(auth)/sign-in-2',
-    path: '/sign-in-2',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-  .lazy(() => import('./routes/(auth)/sign-in-2.lazy').then((d) => d.Route))
 const authForgotPasswordLazyRoute = authForgotPasswordLazyRouteImport
   .update({
     id: '/(auth)/forgot-password',
@@ -127,6 +73,70 @@ const authForgotPasswordLazyRoute = authForgotPasswordLazyRouteImport
   .lazy(() =>
     import('./routes/(auth)/forgot-password.lazy').then((d) => d.Route),
   )
+const authOtpRoute = authOtpRouteImport.update({
+  id: '/(auth)/otp',
+  path: '/otp',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const authSignInRoute = authSignInRouteImport.update({
+  id: '/(auth)/sign-in',
+  path: '/sign-in',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const authSignIn2LazyRoute = authSignIn2LazyRouteImport
+  .update({
+    id: '/(auth)/sign-in-2',
+    path: '/sign-in-2',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+  .lazy(() => import('./routes/(auth)/sign-in-2.lazy').then((d) => d.Route))
+const authSignUpLazyRoute = authSignUpLazyRouteImport
+  .update({
+    id: '/(auth)/sign-up',
+    path: '/sign-up',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+  .lazy(() => import('./routes/(auth)/sign-up.lazy').then((d) => d.Route))
+const errors401LazyRoute = errors401LazyRouteImport
+  .update({
+    id: '/(errors)/401',
+    path: '/401',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+  .lazy(() => import('./routes/(errors)/401.lazy').then((d) => d.Route))
+const errors403LazyRoute = errors403LazyRouteImport
+  .update({
+    id: '/(errors)/403',
+    path: '/403',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+  .lazy(() => import('./routes/(errors)/403.lazy').then((d) => d.Route))
+const errors404LazyRoute = errors404LazyRouteImport
+  .update({
+    id: '/(errors)/404',
+    path: '/404',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+  .lazy(() => import('./routes/(errors)/404.lazy').then((d) => d.Route))
+const errors500LazyRoute = errors500LazyRouteImport
+  .update({
+    id: '/(errors)/500',
+    path: '/500',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+  .lazy(() => import('./routes/(errors)/500.lazy').then((d) => d.Route))
+const errors503LazyRoute = errors503LazyRouteImport
+  .update({
+    id: '/(errors)/503',
+    path: '/503',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+  .lazy(() => import('./routes/(errors)/503.lazy').then((d) => d.Route))
+const AuthenticatedIndexRoute = AuthenticatedIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AuthenticatedRouteRoute,
+} as any)
 const AuthenticatedSettingsRouteLazyRoute =
   AuthenticatedSettingsRouteLazyRouteImport.update({
     id: '/settings',
@@ -135,39 +145,21 @@ const AuthenticatedSettingsRouteLazyRoute =
   } as any).lazy(() =>
     import('./routes/_authenticated/settings/route.lazy').then((d) => d.Route),
   )
-const authSignInRoute = authSignInRouteImport.update({
-  id: '/(auth)/sign-in',
-  path: '/sign-in',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const authOtpRoute = authOtpRouteImport.update({
-  id: '/(auth)/otp',
-  path: '/otp',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const AuthenticatedUsersIndexLazyRoute =
-  AuthenticatedUsersIndexLazyRouteImport.update({
-    id: '/users/',
-    path: '/users/',
+const AuthenticatedAppsIndexLazyRoute =
+  AuthenticatedAppsIndexLazyRouteImport.update({
+    id: '/apps/',
+    path: '/apps/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any).lazy(() =>
-    import('./routes/_authenticated/users/index.lazy').then((d) => d.Route),
+    import('./routes/_authenticated/apps/index.lazy').then((d) => d.Route),
   )
-const AuthenticatedTasksIndexLazyRoute =
-  AuthenticatedTasksIndexLazyRouteImport.update({
-    id: '/tasks/',
-    path: '/tasks/',
+const AuthenticatedChatsIndexLazyRoute =
+  AuthenticatedChatsIndexLazyRouteImport.update({
+    id: '/chats/',
+    path: '/chats/',
     getParentRoute: () => AuthenticatedRouteRoute,
   } as any).lazy(() =>
-    import('./routes/_authenticated/tasks/index.lazy').then((d) => d.Route),
-  )
-const AuthenticatedSettingsIndexLazyRoute =
-  AuthenticatedSettingsIndexLazyRouteImport.update({
-    id: '/',
-    path: '/',
-    getParentRoute: () => AuthenticatedSettingsRouteLazyRoute,
-  } as any).lazy(() =>
-    import('./routes/_authenticated/settings/index.lazy').then((d) => d.Route),
+    import('./routes/_authenticated/chats/index.lazy').then((d) => d.Route),
   )
 const AuthenticatedHelpCenterIndexLazyRoute =
   AuthenticatedHelpCenterIndexLazyRouteImport.update({
@@ -179,39 +171,21 @@ const AuthenticatedHelpCenterIndexLazyRoute =
       (d) => d.Route,
     ),
   )
-const AuthenticatedChatsIndexLazyRoute =
-  AuthenticatedChatsIndexLazyRouteImport.update({
-    id: '/chats/',
-    path: '/chats/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any).lazy(() =>
-    import('./routes/_authenticated/chats/index.lazy').then((d) => d.Route),
-  )
-const AuthenticatedAppsIndexLazyRoute =
-  AuthenticatedAppsIndexLazyRouteImport.update({
-    id: '/apps/',
-    path: '/apps/',
-    getParentRoute: () => AuthenticatedRouteRoute,
-  } as any).lazy(() =>
-    import('./routes/_authenticated/apps/index.lazy').then((d) => d.Route),
-  )
-const AuthenticatedSettingsNotificationsLazyRoute =
-  AuthenticatedSettingsNotificationsLazyRouteImport.update({
-    id: '/notifications',
-    path: '/notifications',
+const AuthenticatedSettingsIndexLazyRoute =
+  AuthenticatedSettingsIndexLazyRouteImport.update({
+    id: '/',
+    path: '/',
     getParentRoute: () => AuthenticatedSettingsRouteLazyRoute,
   } as any).lazy(() =>
-    import('./routes/_authenticated/settings/notifications.lazy').then(
-      (d) => d.Route,
-    ),
+    import('./routes/_authenticated/settings/index.lazy').then((d) => d.Route),
   )
-const AuthenticatedSettingsDisplayLazyRoute =
-  AuthenticatedSettingsDisplayLazyRouteImport.update({
-    id: '/display',
-    path: '/display',
+const AuthenticatedSettingsAccountLazyRoute =
+  AuthenticatedSettingsAccountLazyRouteImport.update({
+    id: '/account',
+    path: '/account',
     getParentRoute: () => AuthenticatedSettingsRouteLazyRoute,
   } as any).lazy(() =>
-    import('./routes/_authenticated/settings/display.lazy').then(
+    import('./routes/_authenticated/settings/account.lazy').then(
       (d) => d.Route,
     ),
   )
@@ -225,15 +199,41 @@ const AuthenticatedSettingsAppearanceLazyRoute =
       (d) => d.Route,
     ),
   )
-const AuthenticatedSettingsAccountLazyRoute =
-  AuthenticatedSettingsAccountLazyRouteImport.update({
-    id: '/account',
-    path: '/account',
+const AuthenticatedSettingsDisplayLazyRoute =
+  AuthenticatedSettingsDisplayLazyRouteImport.update({
+    id: '/display',
+    path: '/display',
     getParentRoute: () => AuthenticatedSettingsRouteLazyRoute,
   } as any).lazy(() =>
-    import('./routes/_authenticated/settings/account.lazy').then(
+    import('./routes/_authenticated/settings/display.lazy').then(
       (d) => d.Route,
     ),
+  )
+const AuthenticatedSettingsNotificationsLazyRoute =
+  AuthenticatedSettingsNotificationsLazyRouteImport.update({
+    id: '/notifications',
+    path: '/notifications',
+    getParentRoute: () => AuthenticatedSettingsRouteLazyRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/settings/notifications.lazy').then(
+      (d) => d.Route,
+    ),
+  )
+const AuthenticatedTasksIndexLazyRoute =
+  AuthenticatedTasksIndexLazyRouteImport.update({
+    id: '/tasks/',
+    path: '/tasks/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/tasks/index.lazy').then((d) => d.Route),
+  )
+const AuthenticatedUsersIndexLazyRoute =
+  AuthenticatedUsersIndexLazyRouteImport.update({
+    id: '/users/',
+    path: '/users/',
+    getParentRoute: () => AuthenticatedRouteRoute,
+  } as any).lazy(() =>
+    import('./routes/_authenticated/users/index.lazy').then((d) => d.Route),
   )
 
 export interface FileRoutesByFullPath {
@@ -407,81 +407,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedRouteRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/': {
-      id: '/_authenticated/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof AuthenticatedIndexRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/(errors)/503': {
-      id: '/(errors)/503'
-      path: '/503'
-      fullPath: '/503'
-      preLoaderRoute: typeof errors503LazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(errors)/500': {
-      id: '/(errors)/500'
-      path: '/500'
-      fullPath: '/500'
-      preLoaderRoute: typeof errors500LazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(errors)/404': {
-      id: '/(errors)/404'
-      path: '/404'
-      fullPath: '/404'
-      preLoaderRoute: typeof errors404LazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(errors)/403': {
-      id: '/(errors)/403'
-      path: '/403'
-      fullPath: '/403'
-      preLoaderRoute: typeof errors403LazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(errors)/401': {
-      id: '/(errors)/401'
-      path: '/401'
-      fullPath: '/401'
-      preLoaderRoute: typeof errors401LazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(auth)/sign-up': {
-      id: '/(auth)/sign-up'
-      path: '/sign-up'
-      fullPath: '/sign-up'
-      preLoaderRoute: typeof authSignUpLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/(auth)/sign-in-2': {
-      id: '/(auth)/sign-in-2'
-      path: '/sign-in-2'
-      fullPath: '/sign-in-2'
-      preLoaderRoute: typeof authSignIn2LazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
     '/(auth)/forgot-password': {
       id: '/(auth)/forgot-password'
       path: '/forgot-password'
       fullPath: '/forgot-password'
       preLoaderRoute: typeof authForgotPasswordLazyRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/_authenticated/settings': {
-      id: '/_authenticated/settings'
-      path: '/settings'
-      fullPath: '/settings'
-      preLoaderRoute: typeof AuthenticatedSettingsRouteLazyRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
-    }
-    '/(auth)/sign-in': {
-      id: '/(auth)/sign-in'
-      path: '/sign-in'
-      fullPath: '/sign-in'
-      preLoaderRoute: typeof authSignInRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/(auth)/otp': {
@@ -491,39 +421,74 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof authOtpRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/users/': {
-      id: '/_authenticated/users/'
-      path: '/users'
-      fullPath: '/users/'
-      preLoaderRoute: typeof AuthenticatedUsersIndexLazyRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+    '/(auth)/sign-in': {
+      id: '/(auth)/sign-in'
+      path: '/sign-in'
+      fullPath: '/sign-in'
+      preLoaderRoute: typeof authSignInRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/tasks/': {
-      id: '/_authenticated/tasks/'
-      path: '/tasks'
-      fullPath: '/tasks/'
-      preLoaderRoute: typeof AuthenticatedTasksIndexLazyRouteImport
-      parentRoute: typeof AuthenticatedRouteRoute
+    '/(auth)/sign-in-2': {
+      id: '/(auth)/sign-in-2'
+      path: '/sign-in-2'
+      fullPath: '/sign-in-2'
+      preLoaderRoute: typeof authSignIn2LazyRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/_authenticated/settings/': {
-      id: '/_authenticated/settings/'
+    '/(auth)/sign-up': {
+      id: '/(auth)/sign-up'
+      path: '/sign-up'
+      fullPath: '/sign-up'
+      preLoaderRoute: typeof authSignUpLazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(errors)/401': {
+      id: '/(errors)/401'
+      path: '/401'
+      fullPath: '/401'
+      preLoaderRoute: typeof errors401LazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(errors)/403': {
+      id: '/(errors)/403'
+      path: '/403'
+      fullPath: '/403'
+      preLoaderRoute: typeof errors403LazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(errors)/404': {
+      id: '/(errors)/404'
+      path: '/404'
+      fullPath: '/404'
+      preLoaderRoute: typeof errors404LazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(errors)/500': {
+      id: '/(errors)/500'
+      path: '/500'
+      fullPath: '/500'
+      preLoaderRoute: typeof errors500LazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/(errors)/503': {
+      id: '/(errors)/503'
+      path: '/503'
+      fullPath: '/503'
+      preLoaderRoute: typeof errors503LazyRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/_authenticated/': {
+      id: '/_authenticated/'
       path: '/'
-      fullPath: '/settings/'
-      preLoaderRoute: typeof AuthenticatedSettingsIndexLazyRouteImport
-      parentRoute: typeof AuthenticatedSettingsRouteLazyRoute
-    }
-    '/_authenticated/help-center/': {
-      id: '/_authenticated/help-center/'
-      path: '/help-center'
-      fullPath: '/help-center/'
-      preLoaderRoute: typeof AuthenticatedHelpCenterIndexLazyRouteImport
+      fullPath: '/'
+      preLoaderRoute: typeof AuthenticatedIndexRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/chats/': {
-      id: '/_authenticated/chats/'
-      path: '/chats'
-      fullPath: '/chats/'
-      preLoaderRoute: typeof AuthenticatedChatsIndexLazyRouteImport
+    '/_authenticated/settings': {
+      id: '/_authenticated/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof AuthenticatedSettingsRouteLazyRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
     '/_authenticated/apps/': {
@@ -533,18 +498,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedAppsIndexLazyRouteImport
       parentRoute: typeof AuthenticatedRouteRoute
     }
-    '/_authenticated/settings/notifications': {
-      id: '/_authenticated/settings/notifications'
-      path: '/notifications'
-      fullPath: '/settings/notifications'
-      preLoaderRoute: typeof AuthenticatedSettingsNotificationsLazyRouteImport
+    '/_authenticated/chats/': {
+      id: '/_authenticated/chats/'
+      path: '/chats'
+      fullPath: '/chats/'
+      preLoaderRoute: typeof AuthenticatedChatsIndexLazyRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/help-center/': {
+      id: '/_authenticated/help-center/'
+      path: '/help-center'
+      fullPath: '/help-center/'
+      preLoaderRoute: typeof AuthenticatedHelpCenterIndexLazyRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/settings/': {
+      id: '/_authenticated/settings/'
+      path: '/'
+      fullPath: '/settings/'
+      preLoaderRoute: typeof AuthenticatedSettingsIndexLazyRouteImport
       parentRoute: typeof AuthenticatedSettingsRouteLazyRoute
     }
-    '/_authenticated/settings/display': {
-      id: '/_authenticated/settings/display'
-      path: '/display'
-      fullPath: '/settings/display'
-      preLoaderRoute: typeof AuthenticatedSettingsDisplayLazyRouteImport
+    '/_authenticated/settings/account': {
+      id: '/_authenticated/settings/account'
+      path: '/account'
+      fullPath: '/settings/account'
+      preLoaderRoute: typeof AuthenticatedSettingsAccountLazyRouteImport
       parentRoute: typeof AuthenticatedSettingsRouteLazyRoute
     }
     '/_authenticated/settings/appearance': {
@@ -554,12 +533,33 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AuthenticatedSettingsAppearanceLazyRouteImport
       parentRoute: typeof AuthenticatedSettingsRouteLazyRoute
     }
-    '/_authenticated/settings/account': {
-      id: '/_authenticated/settings/account'
-      path: '/account'
-      fullPath: '/settings/account'
-      preLoaderRoute: typeof AuthenticatedSettingsAccountLazyRouteImport
+    '/_authenticated/settings/display': {
+      id: '/_authenticated/settings/display'
+      path: '/display'
+      fullPath: '/settings/display'
+      preLoaderRoute: typeof AuthenticatedSettingsDisplayLazyRouteImport
       parentRoute: typeof AuthenticatedSettingsRouteLazyRoute
+    }
+    '/_authenticated/settings/notifications': {
+      id: '/_authenticated/settings/notifications'
+      path: '/notifications'
+      fullPath: '/settings/notifications'
+      preLoaderRoute: typeof AuthenticatedSettingsNotificationsLazyRouteImport
+      parentRoute: typeof AuthenticatedSettingsRouteLazyRoute
+    }
+    '/_authenticated/tasks/': {
+      id: '/_authenticated/tasks/'
+      path: '/tasks'
+      fullPath: '/tasks/'
+      preLoaderRoute: typeof AuthenticatedTasksIndexLazyRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
+    }
+    '/_authenticated/users/': {
+      id: '/_authenticated/users/'
+      path: '/users'
+      fullPath: '/users/'
+      preLoaderRoute: typeof AuthenticatedUsersIndexLazyRouteImport
+      parentRoute: typeof AuthenticatedRouteRoute
     }
   }
 }
