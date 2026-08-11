@@ -8,7 +8,7 @@ export default defineConfig({
   plugins: [react(), TanStackRouterVite()],
   resolve: {
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(import.meta.dirname, './src'),
 
       // fix loading all icon chunks in dev mode
       // https://github.com/tabler/tabler-icons/issues/1233
