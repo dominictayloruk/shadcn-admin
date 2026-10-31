@@ -1,6 +1,6 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-@config '../tailwind.config.js';
+@config "../tailwind.config.js";
 
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
@@ -109,10 +109,10 @@
   .CollapsibleContent {
     overflow: hidden;
   }
-  .CollapsibleContent[data-state='open'] {
+  .CollapsibleContent[data-state="open"] {
     animation: slideDown 300ms ease-out;
   }
-  .CollapsibleContent[data-state='closed'] {
+  .CollapsibleContent[data-state="closed"] {
     animation: slideUp 300ms ease-out;
   }
 

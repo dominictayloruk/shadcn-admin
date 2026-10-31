@@ -7,10 +7,12 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "lint": "biome lint .",
+    "check": "biome check .",
+    "check:write": "biome check --write .",
+    "format:check": "biome format .",
+    "format": "biome format --write .",
     "preview": "vite preview",
-    "format:check": "prettier --check .",
-    "format": "prettier --write .",
     "knip": "knip"
   },
   "dependencies": {
@@ -62,7 +64,6 @@
     "@tanstack/react-query-devtools": "^5.105.0",
     "@tanstack/router-devtools": "^1.167.2",
     "@tanstack/router-plugin": "^1.168.48",
-    "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
@@ -70,8 +71,6 @@
     "@vitejs/plugin-react-swc": "^4.3.3",
     "knip": "^6.44.1",
     "postcss": "^8.5.32",
-    "prettier": "^3.9.10",
-    "prettier-plugin-tailwindcss": "^0.8.1",
     "tailwindcss": "^4.3.3",
     "typescript": "^7.0.2",
     "vite": "^8.3.5"

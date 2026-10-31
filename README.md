@@ -28,7 +28,7 @@ I've been creating dashboard UIs at work and for my personal projects. I always 
 
 **Type Checking:** [TypeScript](https://www.typescriptlang.org/)
 
-**Linting/Formatting:** [Eslint](https://eslint.org/) & [Prettier](https://prettier.io/)
+**Linting/Formatting:** [Biome](https://biomejs.dev/)
 
 **Icons:** [Tabler Icons](https://tabler.io/icons)
 
