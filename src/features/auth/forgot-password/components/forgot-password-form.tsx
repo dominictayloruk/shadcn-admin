@@ -33,7 +33,7 @@ export function ForgotForm({ className, ...props }: ForgotFormProps) {
 
   function onSubmit(data: z.infer<typeof formSchema>) {
     setIsLoading(true)
-    // eslint-disable-next-line no-console
+    // biome-ignore lint/suspicious/noConsole: development logging
     console.log(data)
 
     setTimeout(() => {
