@@ -63,7 +63,7 @@
     "@tailwindcss/postcss": "^4.3.5",
     "@tanstack/react-query-devtools": "^5.105.0",
     "@tanstack/router-devtools": "^1.167.3",
-    "@tanstack/router-plugin": "^1.168.48",
+    "@tanstack/router-plugin": "^1.169.0",
     "@types/js-cookie": "^3.0.6",
     "@types/node": "^26.6.6",
     "@types/react": "^19.3.0",
