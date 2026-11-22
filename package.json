@@ -61,7 +61,7 @@
     "@biomejs/biome": "^2.6.8",
     "@faker-js/faker": "^10.6.0",
     "@tailwindcss/postcss": "^4.3.5",
-    "@tanstack/react-query-devtools": "^5.105.0",
+    "@tanstack/react-query-devtools": "^5.108.1",
     "@tanstack/router-devtools": "^1.167.4",
     "@tanstack/router-plugin": "^1.169.0",
     "@types/js-cookie": "^3.0.6",
